@@ -1,0 +1,18 @@
+1、运行 npm init -y 快速初始化项目
+2、在项目根目录创建src源代码目录和dist产品目录
+3、在src目录下创建index.html
+4、使用 npm 安装 webpack 运行 npm install webpack -D
+    npm install webpack-cli -D
+    全局运行 npm i cnpm -g
+
+5、注意： webpack4.x 提供了 约定大于配置的概念：目的是为了减少配置文件的体积
+    默认约定：打包的入口是 src ->index.js
+            打包输出文件是 dist -> main.js
+            4.x 新增了 mode 选项（必选项） ，可选的值为 development 和 production
+
+
+
+*****在项目中使用react*******
+1、运行 npm i react react-dom -S 安装包
+    react：专门用于创建组件和虚拟DOM的，同时组件的生命周期都在这个包中
+    react-dom：专门进行DOM操作的，最主要的应用场景，就是ReactDOM.render()

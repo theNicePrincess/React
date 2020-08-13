@@ -18,7 +18,13 @@ module.exports = {
 
     plugins: [
         htmlPlugin
-    ]
+    ],
+    module:{
+        // 所有第三方 模块的配置规则
+        rules:[
+            { test :/\.js|.jsx$/,use:'babel-loader',exclude:/node_modules/}
+        ]
+    }
 
 }
 

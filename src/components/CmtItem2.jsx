@@ -1,6 +1,6 @@
 import React from 'react'
 
-import cmtitem2 from '@/css/cmtitem2.css'
+import cmtitem2 from '@/css/cmtitem2.scss'
 console.log(cmtitem2)
 export default function CmtItem(item){
   return <div className={cmtitem2.itemdiv}>

@@ -1,0 +1,23 @@
+
+**********在项目中启用模块化并同时使用bootstrap**********
+
+1、把自己的样式表，定义为 .scss 文件
+2、第三方的样式表，还是 .css 结尾
+3、我们需要为自己的 .scss 文件，启用模块化即可
+4、运行 cnpm i sass-loader node-sass -D 安装能够解析scss文件的loader
+
+
+**********React 中绑定事件的注意点**********
+1、时间的名称都是React提供的，因此名称首字母必须大写 onClick,onMouseOver
+2、为事件提供的处理函数，必须是如下格式
+  onClick = { function }
+
+3、用的最多的事件绑定形式为：
+  <button onClick = { () => this.show('参数')}>按钮</button>
+
+  // 事件的处理函数，需要定义为一个箭头函数，然后复制给函数名称
+  show = (arg1) => {
+    console.log('show 方法',arg1)
+  }
+
+4、在React 中，如果想要修改state 中的数据，推荐使用this.setState({})

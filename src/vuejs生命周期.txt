@@ -1,0 +1,3 @@
+new Vue()   ------------->  new了一个Vue的实例对象，此时，会进入组件的创建过程。
+    |
+init Events & Lifecycle     

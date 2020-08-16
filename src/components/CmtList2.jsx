@@ -1,7 +1,15 @@
 import React from 'react'
 
 // 导入列表组件需要的样式表
-import cssobj from '@/css/cmtlist.css'
+import cssobj from '@/css/cmtlist.scss'
+
+// 如果在引用某个包的时候，这个包被安装到了 node_modules 目录中
+// 则可以省略 node_modules 这层目录，可以直接以包名开始引入自己的模块或样式表
+import 'bootstrap/dist/css/bootstrap.css'
+
+
+// 自己规定 第三方样式表 都是以 .css 结尾  ，这样我们不要为普通的.css文件启用模块化
+//         自己写的样式表，都要以 .scss 或 .less 结尾 只为 .scss 或 .less 文件启用模块化
 
 // 导入 评论项 子组件
 import CmtItems from '@/components/CmtItem2'
@@ -28,6 +36,9 @@ export default class CmtList extends React.Component {
       <h1 className={cssobj.title+" test"}>这是评论列表组件</h1>
 
       {this.state.CommentList.map( item => <CmtItems {...item} key={item.id}></CmtItems> )}
+
+      <button className="btn btn-primary">按钮</button>
+      <div className="panel panel-primary"></div>
     </div>
   }
 }

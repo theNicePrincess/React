@@ -1,0 +1,13 @@
+.title{
+  color:blue;font-weight: 200;text-align: center;
+}
+
+/* css 模块化，只针对 类选择器和id选择器生效*/
+/* css 模块化 不会将标签选择器模块化 */
+
+
+/* 使用 :global 可以控制某个类名不再被模块化，而是会全局生效 */
+/* 使用 :local 可以控制某个类名模块化，默认不加就是被模块化 */
+:global(.test){
+  font-style: italic; 
+} 

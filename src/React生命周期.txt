@@ -1,0 +1,50 @@
+React 组件生命周期分为三部分：
+  1、组件创建阶段，特点：一辈子只执行一次
+    componentWillMount:
+          此时无法获取到页面上的任何元素，因为虚拟DOM和页面都还没有开始渲染，在这个钩子函数中不能操作DOM元素 (等同于vueJs中的 created 钩子函数)
+    render:
+          当执行到这个生命周期函数的时候，即将渲染内存中的虚拟DOM了，执行完后，内存中就有一个渲染好的虚拟DOM树了，但是页面上还没显示DOM
+    componentDidMount:
+          在这个函数中，我们可以放心的操作页面上需要使用的dom元素;如果我们想操作dom元素，最早只能在componentDidMount钩子函数 (相当于 vue中的 mounted 钩子函数)
+
+  2、组件运行阶段，按需根据props属性或 state 状态的改变，有选择性的执行 0 到 n次
+    componentWillReceiveProps(nextProps):
+          组件将接收新的props属性，只有外界传递给组件的属性被改变了才会触发这个钩子函数
+    shouldComponentUpdate(nextProps,nextState):
+          组件是应需要更新
+    componentWillUpdate(nextProps,nextState):
+          组件将要更新，但是还没有更新
+    render:
+          重新渲染内存中虚拟DOM对象，当render调用完毕，虚拟DOM树和组件的state保持一致了，都是最新的，但是页面还是旧的
+    componentDidUpdate(prevProps,prevState):
+          组件已经完成更新，此时页面也是最新的。
+
+  3、组件销毁阶段：一辈子只执行一次
+  componentWillUnmount:
+          在这个钩子函数中，组件尚可使用还没有卸载
+
+
+
+
+    开始
+    |
+    |static defaultProps = {} 这是初始化props属性默认值，作用是防止组件中某些必须的属性外界没有传递的时候报错的问题   【（初始化props值）】
+    |
+    |（创建阶段生命周期函数）
+    |
+    |this.state ={} this.state 是用来初始化组件的私有数据的，定义在组件的constructor构造器函数中，所以，它会在第一时间就被初始化；因为在class 类中，只要new这个类，必然会优先调用constructor构造器     【（初始化 this.state 值）】
+    |
+    |
+    |componentWillMount,这个函数是组件的虚拟DOM元素将要挂载到页面上时执行，此时虚拟DOM还没有被创建，也没有被挂载到页面上（因为虚拟DOM是在render函数中创建的，所以此时根本还没有虚拟DOM 被创建）   【（组件将被挂载）】
+    |
+    |
+    |render() , 当进入到render()中执行的时候，就已经要开始渲染虚拟DOM了，当render()执行完，我们的虚拟DOM 树在内存中就创建好了，此时我们的虚拟DOM并没有挂载到真正的页面上呢！    【在浏览器内存中渲染虚拟DOM树】
+    |
+    |
+    |componentDidMount, 表示组件已经完成挂载，此时我们的state上的数据和内存中的虚拟DOM以及浏览器中的页面已经完全保持一致，到这里组件的创建阶段的生命周期函数已经执行完毕，页面第一次被渲染好。 【组件已经完整的挂载到页面中】
+    |
+    |
+    |（组件运行阶段生命周期函数）
+    |
+    |（通过状态 state 或 属性 props的改变都能触发组件的更新）
+    |

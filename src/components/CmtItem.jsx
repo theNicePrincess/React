@@ -6,12 +6,12 @@ import React from 'react'
 // const h3Style = {marginTop:'10px',fontSize:'16px'}
 // const pStyle = {fontSize:'14px'}
 
-import styles from '@/components/styles.js'
+import styles from '@/components/styles'
 
 
-export default function CmtItem(item){
+export default function CmtItem(item) {
   return <div style={styles.item}>
-  <h3 style={styles.user}>评论人：{item.user}</h3>
-  <p style={styles.content}>评论内容：{item.content}</p>
+    <h3 style={styles.user}>评论人：{item.user}</h3>
+    <p style={styles.content}>评论内容：{item.content}</p>
   </div>
 }
